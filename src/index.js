@@ -10,6 +10,8 @@ app.use(cors('*'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
+
+app.use('/api/users', usersRoute)
 app.use('/', (req, res) => {
     res.json({
         title: 'Proyecto hospital',
@@ -25,8 +27,6 @@ app.use('/', (req, res) => {
     }}}
     )
 })
-
-app.use('/api/users', usersRoute)
 
 const port = 8000
 
