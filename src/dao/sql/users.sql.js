@@ -24,6 +24,10 @@ class User {
         const data = await pool.query('UPDATE Users SET user=? WHERE id =?', [user, user.user_id])
         return data[0]
     }
+    delete = async(id) => {
+        await pool.query('DELETE FROM Users WHERE id =?', [id])
+        return true
+    }
 }
 
 export const user = new User()

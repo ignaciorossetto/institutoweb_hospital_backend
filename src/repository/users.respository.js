@@ -17,4 +17,7 @@ export default class UserRepository {
     getUserById = async(id) => {
         return await this.user.getOneById(id)
     }
+    deleteUserById = async(id) => {
+        return await this.user.delete(id)
+    }
 }
