@@ -1,12 +1,13 @@
 import express from 'express'
-import usersRoute from './routes/users.route.js'
 import cors from 'cors'
 import __dirname from './utils/projectDirname.js';
+import usersRoute from './routes/users.route.js'
 import swaggerUiExpress from "swagger-ui-express";
 import swaggerSpecs from './utils/swagger.js';
+import config from './config/config.js';
 
 const app = express();
-
+const port = config.port
 
 app.use(cors('*'))
 
@@ -23,8 +24,6 @@ app.use('/', (req, res) => {
 }
     )
 })
-
-const port = 8000
 
 app.listen(port, ()=> {
     console.log(`Server is running on port ${port}`)
